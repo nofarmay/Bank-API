@@ -128,10 +128,10 @@ app.post('/account/transfer',(req,res) => {
     accounts.find(currAccount => currAccount.id===accountId)
     const currAccount = accounts.find(currAccount => currAccount.id===accountId)
     const futureReciverAccount = accounts.find( futureReciverAccount => futureReciverAccount.id===reciverAccountId)
-    const transferMoney = (transferReq ,giverCredit,reciverAccount) => {
-    const transferReq = req.body.transfer
     const giverCredit = currAccount.credit
     const reciverAccount = futureReciverAccount.cash
+    const transferReq = req.body.transfer
+   {
     if (transferReq<giverCredit){currAccount.credit-=req.body.transfer,
         reciverAccount.cash+=req.body.transfer}
    else
